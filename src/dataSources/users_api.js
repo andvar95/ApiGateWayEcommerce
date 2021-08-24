@@ -36,9 +36,7 @@ class UsersAPI extends RESTDataSource{
     }
 
     async updatePassword(changePassword){
-
         return await this.post('/password/',changePassword)
-
     }
 
 }

@@ -50,9 +50,6 @@ const usersTypeDefs = gql `
          lastPassword:String
     }
 
-    
-
-
     type Mutation {
         authenticate(credentials: CredentialsInput!):Tokens!
         refreshToken(refresh:String!):Access!
@@ -63,8 +60,10 @@ const usersTypeDefs = gql `
     }
 
     type Query {
-        getUsers:[User]
+        getUsers:[User] 
         getUserById(id:String!):User!
     }
     `;
+
+    //getUsers:[User]   get sin argumentos
 module.exports = usersTypeDefs;

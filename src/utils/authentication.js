@@ -1,14 +1,17 @@
 const { users_api_url } = require("../server");
 const fetch = require("node-fetch");
 const { ApolloError } = require("apollo-server");
+const jwt_decode = require('jwt-decode');
 
 const authentication = async ({ req }) => {
-  let token = "";
+ 
+  try {
 
-  if (req) token = req.headers.authorization;
+
+  const  token = req.headers.authorization;
   if (!token) return { userIdToken: null };
 
-  try {
+
     let requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,10 +24,17 @@ const authentication = async ({ req }) => {
       requestOptions
     );
 
-    if (response.status !== 200)
-      throw new ApolloError(`SESION INACTIVA - ${401}`, 401);
 
-    return { userIdToken: (await response.json()).UserId };
+    if (response.status !== 200) throw new ApolloError(`SESION INACTIVA - ${401}`, 401);
+
+
+
+
+
+    return { 
+      userIdToken: (await response.json()).UserId,
+      admin: tokenInformation.admin
+    };
   } catch (error) {
     throw new ApolloError(`TOKEN  ERROR: ${error}`, 500);
   }
