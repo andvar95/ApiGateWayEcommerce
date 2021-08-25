@@ -13,13 +13,14 @@ const userResolver = {
             if (userIdToken) return dataSources.usersAPI.updateUser(id,user);
             return null
         },
-        updatePassword:(parent,{changePassword},{dataSources})=>{
-            return dataSources.usersAPI.updatePassword(changePassword);
+        updatePassword:(parent,{changePassword},{dataSources, userIdToken})=>{
+            if(userIdToken) return dataSources.usersAPI.updatePassword(changePassword);
+            return null
         }
     },
     Query:{
         getUsers:(_,{},{dataSources,userIdToken,admin})=>{
-            if(admin) return dataSources.usersAPI.getUsers();
+            if(admin && userIdToken) return dataSources.usersAPI.getUsers();
             return null
         },
         getUserById:(_,{id},{dataSources,userIdToken})=>{

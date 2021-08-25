@@ -16,7 +16,7 @@ const authentication = async ({ req }) => {
 
             if (response.status != 200) throw new ApolloError(`SESION INACTIVA - ${401}`, 401)
             const tokenInfo = jwt_decode(token)
-            console.log(tokenInfo)
+           
             return { userIdToken: (await response.json()).UserId,admin:tokenInfo.admin};
         }
         catch (error) {

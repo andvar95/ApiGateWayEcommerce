@@ -12,8 +12,8 @@ const orderResolver = {
 
     },
     Query:{
-        getOrders:(_,{},{dataSources,userIdToken})=>{
-            if(userIdToken) return dataSources.ordersAPI.getOrders();
+        getOrders:(_,{},{dataSources,userIdToken,admin})=>{
+            if(userIdToken && admin) return dataSources.ordersAPI.getOrders();
             return null
         },
         getOrder:(_,{id},{dataSources,userIdToken})=>{
