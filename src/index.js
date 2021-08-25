@@ -3,6 +3,7 @@ const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const UsersAPI = require('./dataSources/users_api');
 const OrdersAPI = require('./dataSources/orders_api');
+const ProductsAPI = require('./dataSources/product_api');
 const authentication = require('./utils/authentication');
 
 const server = new ApolloServer({
@@ -12,7 +13,9 @@ const server = new ApolloServer({
     dataSources:()=>({
 
         usersAPI:new UsersAPI(),
-        ordersAPI: new OrdersAPI()
+        ordersAPI: new OrdersAPI(),
+        productAPI:new ProductsAPI()
+
     }),
     introspection:true,
     playground:true
