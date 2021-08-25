@@ -2,16 +2,16 @@ const { gql } = require('apollo-server');
 
 const productsTypeDefs = gql`
     type Product {
-        productId: String,
-        name: String,
-        description: String,
-        quantity: Int,
-        category: String,
-        price: Float,
+        product_Id: String!
+        name: String
+        description: String
+        quantity: Int
+        category: String
+        price: Float
     }
 
     input CreateProduct {
-        productId: String,
+        product_Id: String,
         name: String,
         description: String,
         quantity: Int,
@@ -20,7 +20,7 @@ const productsTypeDefs = gql`
     }
 
     extend type Query{
-        productByProdId(id:String!):Product
+        productByProdId(product_Id:String!):Product
         allProducts:[Product]
     }
 `;
