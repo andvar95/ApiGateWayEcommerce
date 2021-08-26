@@ -36,7 +36,7 @@ const productResolver = {
         },
         newOrder:(_,{orderDetails},{ dataSources, userIdToken})=> {
             if(userIdToken)
-                return dataSources.productAPI.newOrder(orderDetails)
+                return dataSources.productAPI.newOrder([orderDetails])
             else
                 return null
         }
