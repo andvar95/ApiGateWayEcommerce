@@ -1,13 +1,13 @@
 const productResolver = {
     Query: {
         productByProdId: (_, {product_Id}, { dataSources, userIdToken}) => {
-            console.log(product_Id)
+        
             if(userIdToken) return dataSources.productAPI.productByProdId(product_Id)
             return null
         },
         allProducts:(_,{},{ dataSources, userIdToken})=>{
-            if(userIdToken) return dataSources.productAPI.allProducts()
-            return null
+            return dataSources.productAPI.allProducts()
+            
         }
 
     },
