@@ -33,7 +33,14 @@ const productResolver = {
                 return dataSources.productAPI.updProductbyId(product_Id,product)
             else
                 return null
+        },
+        newOrder:(_,{orderDetails},{ dataSources, userIdToken})=> {
+            if(userIdToken)
+                return dataSources.productAPI.newOrder(orderDetails)
+            else
+                return null
         }
+
     }
 };
 
