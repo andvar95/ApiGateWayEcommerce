@@ -28,7 +28,6 @@ const ordersTypeDefs = gql `
     }
 
     input inputOrder{
-        orderId:String,
         date:String,
         total:Float,
         detailProducts:[InputDetailProducts],

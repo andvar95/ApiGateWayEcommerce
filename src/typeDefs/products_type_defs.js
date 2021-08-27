@@ -15,7 +15,6 @@ const productsTypeDefs = gql`
     }
 
     input CreateProduct {
-        product_Id: String,
         name: String,
         description: String,
         quantity: Int,
