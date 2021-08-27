@@ -11,10 +11,7 @@ const productsTypeDefs = gql`
     }
 
     type OrderDetails{
-        idProduct: String
-        quantity: Int
-        price: Float
-        subTotal: Float
+        orden: [newOrden] 
     }
 
     input CreateProduct {
