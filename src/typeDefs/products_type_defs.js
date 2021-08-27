@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
 const productsTypeDefs = gql`
-    type Product {
+    type Product{
         product_Id: String!
         name: String
         description: String
@@ -10,8 +10,11 @@ const productsTypeDefs = gql`
         price: Float
     }
 
+    type OrderDetails{
+        orden: [newOrden] 
+    }
+
     input CreateProduct {
-        product_Id: String,
         name: String,
         description: String,
         quantity: Int,
@@ -28,6 +31,13 @@ const productsTypeDefs = gql`
         price: Float,
     }
 
+    input newOrden{
+        idProduct: String
+        quantity: Int
+        price: Float
+        subTotal: Float
+    }
+
     extend type Query{
         productByProdId(product_Id:String!):Product
         allProducts:[Product]
@@ -37,6 +47,7 @@ const productsTypeDefs = gql`
         createProduct(product: CreateProduct!): Product
         deleteProduct(product_Id:String!):[Product]
         updProductbyId(product_Id:String!,product:UpdateProduct): Product
+        newOrder(orderDetails: [newOrden]): [OrderDetails]
     }
 `;
 module.exports = productsTypeDefs;
