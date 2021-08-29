@@ -10,9 +10,7 @@ const productsTypeDefs = gql`
         price: Float
     }
 
-    type OrderDetails{
-        orden: [newOrden] 
-    }
+   
 
     input CreateProduct {
         name: String,
@@ -47,7 +45,7 @@ const productsTypeDefs = gql`
         createProduct(product: CreateProduct!): Product
         deleteProduct(product_Id:String!):[Product]
         updProductbyId(product_Id:String!,product:UpdateProduct): Product
-        newOrder(orderDetails: [newOrden]): [OrderDetails]
+    
     }
 `;
 module.exports = productsTypeDefs;

@@ -26,6 +26,7 @@ class ProductAPI extends RESTDataSource {
 
   async updProductbyId(product_Id,product){
     product = new Object(JSON.parse(JSON.stringify(product)));
+    
     return await this.put(`/updproduct/${product_Id}`,product);
     
   }

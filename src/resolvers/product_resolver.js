@@ -20,12 +20,9 @@ const productResolver = {
             if(userIdToken && admin) return dataSources.productAPI.deleteProduct(product_Id)
             return null
         },
-        updProductbyId:(_,{product_Id},{product},{ dataSources, userIdToken, admin})=> {
+        updProductbyId:(_,{product_Id,product},{ dataSources, userIdToken, admin})=> {
+            
             if(userIdToken)return dataSources.productAPI.updProductbyId(product_Id,product)
-            return null
-        },
-        newOrder:(_,{orderDetails},{ dataSources, userIdToken})=> {
-            if(userIdToken)return dataSources.productAPI.newOrder([orderDetails])
             return null
         }
 
