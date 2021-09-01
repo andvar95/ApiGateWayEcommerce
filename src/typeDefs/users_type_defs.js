@@ -17,6 +17,18 @@ const usersTypeDefs = gql `
         is_superuser:Boolean
     }
 
+    type UserUpdate{
+        id:String,
+        first_name:String,
+        username:String,
+        email:String,
+        password:String,
+        phone:String,
+        address:String,
+        is_active:Boolean,
+        is_superuser:Boolean
+    }
+
     type Response{
         Response:String
     }
@@ -60,7 +72,7 @@ const usersTypeDefs = gql `
     }
 
     type Query {
-        getUsers:[User] 
+        getUsers:[UserUpdate] 
         getUserById(id:String!):User!
     }
     `;

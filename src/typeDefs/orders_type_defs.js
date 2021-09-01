@@ -3,6 +3,7 @@ const {gql} = require('apollo-server');
 const ordersTypeDefs = gql `
 
     type DetailProducts{
+        url:String,
         idProduct:String,
         name:String,
         quantity:Int,
@@ -10,6 +11,7 @@ const ordersTypeDefs = gql `
         subTotal:Float
     }
     input InputDetailProducts{
+        url:String,
         idProduct:String,
         name:String,
         quantity:Int,

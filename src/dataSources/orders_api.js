@@ -27,6 +27,8 @@ class OrdersAPI extends RESTDataSource{
         return await this.put(`/orders/${id}/`,order)
     }
     async finishOrder(id,order){
+
+        console.log(order.detailProducts);
      
        
        const res =  await fetch(`https://productunalms.herokuapp.com/neworder`,
@@ -34,8 +36,8 @@ class OrdersAPI extends RESTDataSource{
            headers: {'Content-type': 'application/json'},
            body:JSON.stringify(order.detailProducts)}
            )
-        
-       
+
+          
        
           let Res = {}
            if(res.status!== 200)

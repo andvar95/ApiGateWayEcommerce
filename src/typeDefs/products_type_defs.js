@@ -2,6 +2,7 @@ const { gql } = require('apollo-server');
 
 const productsTypeDefs = gql`
     type Product{
+        url:String,
         product_Id: String!
         name: String
         description: String
@@ -13,6 +14,7 @@ const productsTypeDefs = gql`
    
 
     input CreateProduct {
+        url:String,
         name: String,
         description: String,
         quantity: Int,
@@ -21,6 +23,7 @@ const productsTypeDefs = gql`
     }
 
     input UpdateProduct {
+        url:String,
         product_Id: String,
         name: String,
         description: String,
