@@ -39,6 +39,10 @@ class UsersAPI extends RESTDataSource{
         return await this.post('/password/',changePassword)
     }
 
+    async adminUpdate(user){
+        return await this.put('/adminupdate/',user)
+    }
+
 }
 
 module.exports = UsersAPI;

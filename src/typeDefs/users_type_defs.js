@@ -17,6 +17,18 @@ const usersTypeDefs = gql `
         is_superuser:Boolean
     }
 
+
+    input UserAdminUpdt{
+        id:Int,
+        first_name:String,
+        username:String,
+        email:String,
+        phone:String,
+        address:String,
+        is_active:Boolean,
+        is_superuser:Boolean
+    }
+
     type UserUpdate{
         id:String,
         first_name:String,
@@ -68,6 +80,7 @@ const usersTypeDefs = gql `
         register(user:UserCreate):User!
         updateUser(id:String!,user:UserCreate!):User!
         updatePassword(changePassword:ChangePassword!):Response!
+        adminUpdate(user:UserAdminUpdt):Response!
 
     }
 

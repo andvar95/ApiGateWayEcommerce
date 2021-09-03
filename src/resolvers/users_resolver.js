@@ -14,8 +14,11 @@ const userResolver = {
             return null
         },
         updatePassword:(parent,{changePassword},{dataSources, userIdToken})=>{
-            console.log(changePassword);
             if(userIdToken) return dataSources.usersAPI.updatePassword(changePassword);
+            return null
+        },
+        adminUpdate:(_,{user},{dataSources,userIdToken,admin})=>{
+            if(admin && userIdToken) return dataSources.usersAPI.adminUpdate(user)
             return null
         }
     },
